@@ -9,12 +9,17 @@ function onRequestHandler() {
         //2 = HEADERS_RECEIVED, se está llamando al metodo send()
         //3 = LOADING, esta cargando, es decir, esta recibiendo la respuesta
         //4 = DONE , se ha completado la operacion del
-        //console.log(this.response);
-        const data = JSON.parse(this.response);
+        console.log(this.response);
+        const data = Object.entries(JSON.parse(this.response));
+        console.log(Array.isArray(data));
         console.log(data);
+        const HTMLResponse = document.querySelector("#app");
+
+        const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
+        HTMLResponse.innerHTML = `<ul>${template}</ul>`;
     }
 }
 
 xhr.addEventListener("load", onRequestHandler);
-xhr.open('GET',`${API_URL}/api/json/v1/1/random.php`);
+xhr.open("GET",`${API_URL}/api/json/v1/1/random.php`);
 xhr.send();
