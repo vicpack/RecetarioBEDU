@@ -15,5 +15,13 @@ module.exports = {
             filename: 'index.html',
             template: './index.html'
         })
-    ]
+    ],
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist'),
+        },
+        port: 3000,
+        open: true,
+        hot: true
+    }
 }
