@@ -39,9 +39,13 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel-preset-env']
+                        presets: ['@babel/preset-env']
                     }
                 }
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/,
+                use: ["file-loader"]
             }
         ],
     }

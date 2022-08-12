@@ -1,5 +1,8 @@
 import '../css/style.css';
+import image from '../assets/images/capterra.png';
 
+const imageLogo = document.getElementById('capterra');
+imageLogo.src = image.src;
 const API_URL = 'https://www.themealdb.com';
 
 const xhr = new XMLHttpRequest();
