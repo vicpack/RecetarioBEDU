@@ -1,4 +1,4 @@
-import './css/style.css';
+import '../css/style.css';
 
 const API_URL = 'https://www.themealdb.com';
 
