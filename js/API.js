@@ -1,30 +1,22 @@
-import '../css/style.css';
-import image from '../assets/images/capterra.png';
+//import '../css/style.css';
+//import image from '../assets/capterra.png';
 
-const imageLogo = document.getElementById('capterra');
-imageLogo.src = image.src;
+//const imageLogo = document.getElementById('capterra');
+//imageLogo.src = image.src;
+
 const API_URL = 'https://www.themealdb.com';
 
-const xhr = new XMLHttpRequest();
+const HTMLResponse = document.querySelector('#app');
+const arrayMeals = [];
 
-function onRequestHandler() {
-    if(this.readyState === 4 && this.status === 200){
-        //0 = UNSET no se ha llamado al metodo open
-        //1 = OPENED , se ha llamado al metodo opened
-        //2 = HEADERS_RECEIVED, se está llamando al metodo send()
-        //3 = LOADING, esta cargando, es decir, esta recibiendo la respuesta
-        //4 = DONE , se ha completado la operacion del
-        console.log(this.response);
-        const data = Object.entries(JSON.parse(this.response));
-        console.log(Array.isArray(data));
-        console.log(data);
-        const HTMLResponse = document.querySelector("#app");
+fetch(`${API_URL}/api/json/v1/1/filter.php?c=Seafood`)
+.then((response) => response.json())
+.then((meals)=>{
+    //console.log(Array.isArray(meals));
+    console.log(Object.values(meals));
+    const entries = Object.entries(meals);
+    console.log(entries);
+    const template = entries.map(meal => `<li>${meal.strMeal}🍔${meal.strMealThumb}</li>`);
+    HTMLResponse.innerHTML = `<ul>${template}</ul>`;
+});
 
-        const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
-        HTMLResponse.innerHTML = `<ul>${template}</ul>`;
-    }
-}
-
-xhr.addEventListener("load", onRequestHandler);
-xhr.open("GET",`${API_URL}/api/json/v1/1/random.php`);
-xhr.send();
