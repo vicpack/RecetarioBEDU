@@ -20,6 +20,27 @@ function onRequestHandler() {
     }
 }
 
+function apiByName(nameSearch) {
+    const xhrequest = new XMLHttpRequest();
+
+    xhrequest.addEventListener("load", function(){
+        if(this.readyState === 4 && this.status === 200){
+        //0 = UNSET no se ha llamado al metodo open
+        //1 = OPENED , se ha llamado al metodo opened
+        //2 = HEADERS_RECEIVED, se está llamando al metodo send()
+        //3 = LOADING, esta cargando, es decir, esta recibiendo la respuesta
+        //4 = DONE , se ha completado la operacion del
+        const data = Object.entries(JSON.parse(this.response));
+        const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
+        console.log("Array: ",Array.isArray(data));
+        console.log("data:", data);
+
+    }
+    });
+    xhrequest.open("GET",`${API_URL}/api/json/v1/1/search.php?s=${nameSearch}`);
+    xhrequest.send();    
+}
+/*
 xhr.addEventListener("load", onRequestHandler);
 xhr.open("GET",`${API_URL}/api/json/v1/1/random.php`);
-xhr.send();
+xhr.send();*/
