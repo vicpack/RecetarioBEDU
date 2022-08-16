@@ -1,5 +1,3 @@
-import css from "./../css/styles.css";
-
 const API_URL = 'https://www.themealdb.com';
 
 const xhr = new XMLHttpRequest();

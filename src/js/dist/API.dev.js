@@ -1,9 +1,5 @@
 "use strict";
 
-var _styles = _interopRequireDefault(require("./../css/styles.css"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 var API_URL = 'https://www.themealdb.com';
 var xhr = new XMLHttpRequest();
 

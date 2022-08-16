@@ -1,8 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
-
 module.exports = {
     entry: {
       bundle: './src/js/API.js'
@@ -19,7 +17,27 @@ module.exports = {
             hash: true,
         })
     ],
-    // Estilos CSS
+    // Modulos para Estilos CSS, Babel e Imagenes
+    module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
+          },
+          {
+            test: /\.js$/,
+            use:{
+              loader: 'babel-loader',
+              options:{
+                presets: ['@babel-preset-env']
+              }
+            }
+          },
+          {
+            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            type: 'src/img'
+          }
+    ],},
 
 
     // Server
