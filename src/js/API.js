@@ -116,9 +116,10 @@ function print(){
                 console.log(col)
                 HTMLReplace.appendChild(col);
               }
+            
+            // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
+            HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
         }
         
-          // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
-          HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
     }
 printResults.addEventListener("click", print);
