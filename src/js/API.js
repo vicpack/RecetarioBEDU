@@ -48,6 +48,10 @@ xhr.send();*/
 console.log("nueva linea de texto, data antes de buscar: ", data);
 
 const printResults = document.getElementById("printResults");
+
+// Exponer HTMLResponse al scope global
+const HTMLResponse = document.querySelector("#app");
+
 function print(){
     console.log("function print is running");
     console.log(data);
@@ -58,8 +62,12 @@ function print(){
         console.log(dataHead); // logs "meals" 
         console.log(dataMeals); // logs an array with 25 meal objects
 
+        // Crear el node HTMLReplace <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        const HTMLReplace = document.createElement("div");
+        HTMLReplace.className = "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3";
+
         //Imprimir el nombre del primer platillo al HTML
-        const HTMLResponse = document.querySelector("#app");
+        // const HTMLResponse = document.querySelector("#app");
         // HTMLResponse.innerHTML = `<ul></ul>`;
         // const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
         // HTMLResponse.firstChild.innerHTML = `<li>${dataMeals[0].strMeal}</li>`;
@@ -95,8 +103,9 @@ function print(){
             card.appendChild(img);
 
             console.log(col)
-            HTMLResponse.appendChild(col);
+            HTMLReplace.appendChild(col);
           }
-  
+          // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
+          HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
     }
 printResults.addEventListener("click", print);
