@@ -49,12 +49,20 @@ console.log("nueva linea de texto, data antes de buscar: ", data);
 
 const printResults = document.getElementById("printResults");
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/victor
 
 // Exponer HTMLResponse al scope global
 const HTMLResponse = document.querySelector("#app");
 
+<<<<<<< HEAD
 >>>>>>> 203a07e95763f3fa2be30adc700edbd2b9dabbcb
+=======
+
+
+>>>>>>> origin/victor
 function print(){
     console.log("function print is running");
     console.log(data);
@@ -66,6 +74,7 @@ function print(){
         console.log(dataMeals); // logs an array with 25 meal objects
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         //Imprimir el nombre del primer platillo al HTML
         const HTMLResponse = document.querySelector("#app");
         HTMLResponse.innerHTML = `<ul></ul>`;
@@ -74,6 +83,8 @@ function print(){
         console.log(template.toString())
   
 =======
+=======
+>>>>>>> origin/victor
         // Crear el node HTMLReplace <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         const HTMLReplace = document.createElement("div");
         HTMLReplace.className = "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3";
@@ -133,6 +144,18 @@ function print(){
             HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
         }
         
+<<<<<<< HEAD
 >>>>>>> 203a07e95763f3fa2be30adc700edbd2b9dabbcb
+=======
+=======
+        //Imprimir el nombre del primer platillo al HTML
+        const HTMLResponse = document.querySelector("#app");
+        HTMLResponse.innerHTML = `<ul></ul>`;
+        const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
+        HTMLResponse.firstChild.innerHTML = `<li>${dataMeals[0].strMeal}</li>`;
+        console.log(template.toString())
+  
+
+>>>>>>> origin/victor
     }
 printResults.addEventListener("click", print);
