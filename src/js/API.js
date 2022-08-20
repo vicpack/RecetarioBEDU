@@ -50,7 +50,7 @@ console.log("nueva linea de texto, data antes de buscar: ", data);
 const printResults = document.getElementById("printResults");
 function print(){
     console.log("function print is running");
-    console.log(data);
+    console.log("data is: ", data);
 
         // Creé las variables dataHead y dataMeals para acceder a elementos del array
         const dataHead = data[0][0]; 
@@ -60,10 +60,55 @@ function print(){
 
         //Imprimir el nombre del primer platillo al HTML
         const HTMLResponse = document.querySelector("#app");
-        HTMLResponse.innerHTML = `<ul></ul>`;
-        const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
-        HTMLResponse.firstChild.innerHTML = `<li>${dataMeals[0].strMeal}</li>`;
-        console.log(template.toString())
+        // HTMLResponse.innerHTML = `<ul></ul>`;
+        // const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
+        // HTMLResponse.firstChild.innerHTML = `<li>${dataMeals[0].strMeal}</li>`;
+        
+        // Cree la function createNode
+        function createNode(type, child){
+            const node = document.createElement(type);
+            if (typeof child === "string"){
+             const text = document.createTextNode(child);
+             node.appendChild(text);
+            } else {
+             node.appendChild(child);
+            }
+            return node;
+        }
+
+        //Imprimir un card a partir de cada elemento del array
+        for (const meal of dataMeals) {
+            const col = document.createElement("div");
+            col.className="col";
+
+            // Add <div class="card shadow-sm">
+            const  card = document.createElement("div");
+            card.className =  "card shadow-sm";
+            col.appendChild(card);
+
+            //Add <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            const img = document.createElement("img");
+            img.className = "bd-placeholder-img card-img-top";
+            // img.height = "225";
+            img.role="img";
+            img.preserveAspectRatio="xMidYMid slice";
+            img.focusable="false";
+            img.src=""+meal.strMealThumb;
+            card.appendChild(img);
+
+            // const valores = Object.values(mountain);
+            // console.log(valores); // ['Kilimanjaro', 5895, 'Tanzania']
+
+            // create one cell for each value
+            // valores.forEach(function(valor){
+            //   console.log(valor)
+            //   let cell = document.createElement("td")
+            //   cell.appendChild(document.createTextNode(valor))
+            //   row.appendChild(cell);
+            // });
+            console.log(col)
+            HTMLResponse.appendChild(col);
+          }
   
     }
 printResults.addEventListener("click", print);
