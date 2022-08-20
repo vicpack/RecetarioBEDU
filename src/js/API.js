@@ -84,27 +84,40 @@ function print(){
             return node;
         }
 
+        if (!dataMeals){
+            console.log("dataMeals is null");
+            const noResults = document.createElement("p");
+            const text = document.createTextNode("No hay resultados");
+            noResults.appendChild(text);
+            HTMLReplace.appendChild(noResults);
+
+            HTMLResponse.replaceChild(HTMLReplace,HTMLResponse.childNodes[0]);
+        } 
         //Imprimir un card a partir de cada elemento del array
-        for (const meal of dataMeals) {
-            const col = document.createElement("div");
-            col.className="col";
-
-            // Add <div class="card shadow-sm">
-            const  card = document.createElement("div");
-            card.className =  "card shadow-sm";
-            col.appendChild(card);
-
-            //Add img with class "bd-placeholder-img card-img-top"
-            const img = document.createElement("img");
-            img.className = "bd-placeholder-img card-img-top";
-            // img.height = "225";
-            img.role="img";
-            img.src=""+meal.strMealThumb;
-            card.appendChild(img);
-
-            console.log(col)
-            HTMLReplace.appendChild(col);
-          }
+        console.log(Array.isArray(dataMeals))
+        if (Array.isArray(dataMeals)){
+            for (const meal of dataMeals) {
+                const col = document.createElement("div");
+                col.className="col";
+    
+                // Add <div class="card shadow-sm">
+                const  card = document.createElement("div");
+                card.className =  "card shadow-sm";
+                col.appendChild(card);
+    
+                //Add img with class "bd-placeholder-img card-img-top"
+                const img = document.createElement("img");
+                img.className = "bd-placeholder-img card-img-top";
+                // img.height = "225";
+                img.role="img";
+                img.src=""+meal.strMealThumb;
+                card.appendChild(img);
+    
+                console.log(col)
+                HTMLReplace.appendChild(col);
+              }
+        }
+        
           // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
           HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
     }
