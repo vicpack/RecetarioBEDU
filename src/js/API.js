@@ -52,6 +52,8 @@ const printResults = document.getElementById("printResults");
 // Exponer HTMLResponse al scope global
 const HTMLResponse = document.querySelector("#app");
 
+
+
 function print(){
     console.log("function print is running");
     console.log(data);
@@ -121,5 +123,14 @@ function print(){
             HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
         }
         
+=======
+        //Imprimir el nombre del primer platillo al HTML
+        const HTMLResponse = document.querySelector("#app");
+        HTMLResponse.innerHTML = `<ul></ul>`;
+        const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
+        HTMLResponse.firstChild.innerHTML = `<li>${dataMeals[0].strMeal}</li>`;
+        console.log(template.toString())
+  
+
     }
 printResults.addEventListener("click", print);
