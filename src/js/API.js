@@ -91,21 +91,9 @@ function print(){
             img.className = "bd-placeholder-img card-img-top";
             // img.height = "225";
             img.role="img";
-            img.preserveAspectRatio="xMidYMid slice";
-            img.focusable="false";
             img.src=""+meal.strMealThumb;
             card.appendChild(img);
 
-            // const valores = Object.values(mountain);
-            // console.log(valores); // ['Kilimanjaro', 5895, 'Tanzania']
-
-            // create one cell for each value
-            // valores.forEach(function(valor){
-            //   console.log(valor)
-            //   let cell = document.createElement("td")
-            //   cell.appendChild(document.createTextNode(valor))
-            //   row.appendChild(cell);
-            // });
             console.log(col)
             HTMLResponse.appendChild(col);
           }
