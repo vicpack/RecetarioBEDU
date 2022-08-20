@@ -53,10 +53,6 @@ body {
   background-color: var(--color-body);
 }
 
-#app{
-  /* display: block; */
-}
-
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;

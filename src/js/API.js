@@ -50,7 +50,7 @@ console.log("nueva linea de texto, data antes de buscar: ", data);
 const printResults = document.getElementById("printResults");
 function print(){
     console.log("function print is running");
-    console.log("data is: ", data);
+    console.log(data);
 
         // Creé las variables dataHead y dataMeals para acceder a elementos del array
         const dataHead = data[0][0]; 
