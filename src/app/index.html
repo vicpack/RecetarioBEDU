@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Buscador de Recetas - Proyecto Final BEDU">
+  <meta name="author" content="Ma. Eunice Vazquez, Eder Bermudez, Carlos Jiménez, Dionicio Mata, Victor Morales">
+  <meta name="keywords" content="Buscador de Recetas, BEDU, JS">
+
+  <title>Like A Cheff - Buscador de Recetas BEDU</title>
+
+  <link href="./../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./../css/styles.css" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./../favicon/favicon-16x16.png">
+  <link rel="manifest" href="./../favicon/site.webmanifest">
+  <link rel="mask-icon" href="./../favicon/safari-pinned-tab.svg" color="#914d0c">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+
+  <input type="text" id="searchByName" placeholder="¿Que vamos a cocinas hoy" title="Type in a name">
+  <button type="button" id="printResults">Print Results</button>
+  <!-- Agregué div #app para imprimir los resultados -->
+  <div id="app"></div>
+
+  <!-- JS Files-->
+  <!--JQuery, Popper + Boostrap -->
+
+
+
+
+  <script src="./../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="./../js/API.js"></script>
+
+  <script>
+    var inputByName = document.getElementById("searchByName");
+
+    // Execute a function when the user presses a key on the keyboard
+    inputByName.addEventListener("keypress", function (event) {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === "Enter") {
+
+        var search = inputByName.value.toUpperCase();
+        console.log("Buscar: ",search)
+        apiByName(search);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

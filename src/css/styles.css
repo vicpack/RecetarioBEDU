@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/* DOCUMENTO CSS PRINCIPAL                      */
+/* Desarrollado para: BEDU                      */
+/* Proyecto: Final en Equipo                    */
+/* Autores: Ma. Eunice Vazquez,                 
+            Eder Bermudez,
+            Carlos Jiménez,
+            Dionicio Mata, 
+            Victor Morales                      */
+/* Fecha: Agosto 2022                           */
+/* -- TABLA DE CONTENIDOS ------------------------
+*     1. TIPOGRAFIAS
+*     2. VARIABLES ROOT
+*     3. PLANTILLA
+----------------------------------------------- */
+/*@import "normalize.css";*/
+/* ########## 1. TIPOGRAFIAS ########## */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Pacifico&display=swap");
+@import url("./../libs/icofont/icofont.min.css");
+/* ########## 2. VARIABLES ROOT ########## */
+:root {
+  --color-1: #914D0C;
+  --color-2: #D48432;
+  --color-dark1: #3E2B19;
+  --color-dark2: #1D0F02;
+  --color-txt: #1E1E1E;
+  --color-back: #EBDED3;
+  --color-body: #FAF2EA;
+  --color-borde: var(--color-dark1);
+  --linea-borde: 1px solid var(--color-borde);
+  --font-main: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-title: "Pacifico", Georgia, "Times New Roman", Times, serif;
+  --font-icon: "IcoFont";
+}
+
+/* ########## 3. PLANTILLA ########## */
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-txt);
+  text-align: left;
+  background-color: var(--color-body);
+}
+
+#app{
+  display: block;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}

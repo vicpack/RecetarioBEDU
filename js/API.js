@@ -13,9 +13,15 @@ fetch(`${API_URL}/api/json/v1/1/filter.php?c=Seafood`)
 .then((response) => response.json())
 .then((meals)=>{
     //console.log(Array.isArray(meals));
-    console.log(Object.values(meals));
-    const entries = Object.entries(meals);
-    console.log(entries);
+    const keys = Object.keys(meals);
+    const pairs = [];
+
+    for(let i = 0; i < keys.length;i++){
+        pairs.push([keys[i],meals[keys[i]]]);
+    }
+
+    console.log("EStos son los pairs : ",pairs);
+
     const template = entries.map(meal => `<li>${meal.strMeal}🍔${meal.strMealThumb}</li>`);
     HTMLResponse.innerHTML = `<ul>${template}</ul>`;
 });
