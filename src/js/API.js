@@ -112,7 +112,38 @@ function print(){
                 img.role="img";
                 img.src=""+meal.strMealThumb;
                 card.appendChild(img);
-    
+
+                // <div class="card-body"> 
+                const cardBody = document.createElement("div");
+                cardBody.className = "card-body";
+                card.appendChild(cardBody);
+
+                // Add <p class="card-text"> con strMeal strCategory y strArea
+                const cardMeal= createNode("p", meal.strMeal);
+                cardBody.appendChild(cardMeal);
+                const cardCategory = createNode("p", meal.strCategory);
+                cardBody.appendChild(cardCategory);
+                const cardArea = createNode("p", meal.strArea);
+                cardBody.appendChild(cardArea);
+
+                // Add <div class="d-flex justify-content-between align-items-center">
+                const botones = document.createElement("div");
+                botones.className = "d-flex justify-content-between align-items-center";
+                cardBody.appendChild(botones);
+
+                // Add <div class="btn-group">
+                const btnGroup = document.createElement("div");
+                btnGroup.className = "btn-group";
+                botones.appendChild(btnGroup);
+
+                // <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                const viewButton = createNode("button", "Ver detalles");
+                const secButton = createNode("button", "Otro botón");
+                viewButton.className = "btn btn-sm btn-outline-secondary";
+                secButton.className = "btn btn-sm btn-outline-secondary";
+                btnGroup.appendChild(viewButton);
+                btnGroup.appendChild(secButton);
+
                 console.log(col)
                 HTMLReplace.appendChild(col);
               }
