@@ -14,7 +14,7 @@ getMealBtn.addEventListener('click',() =>{
 function createMeal(meal) {
     mealContainer.innerHTML = `
         <div class="row">
-            <div class="column five>
+            <div class="column five">
                 <img src="${meal.strMealThumb}" alt="Meal Img" />
             </div>
         </div>
