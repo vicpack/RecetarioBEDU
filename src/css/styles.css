@@ -12,6 +12,7 @@
 *     1. TIPOGRAFIAS
 *     2. VARIABLES ROOT
 *     3. PLANTILLA
+*     4. INDEX
 ----------------------------------------------- */
 /*@import "normalize.css";*/
 /* ########## 1. TIPOGRAFIAS ########## */
@@ -101,4 +102,50 @@ body {
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+}
+
+/* ########## 3. INDEX  ########## */
+#searchByName {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-1);
+  padding: 6px 15px;
+  border: 1px solid var(--color-1);
+  border-right: 0 !important;
+  border-radius: 20px 0 0 20px;
+  box-shadow: inset 0 0 3px 0 var(--color-dark1);
+}
+#searchByName::-webkit-input-placeholder {
+  /* Edge */
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+#searchByName:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+#searchByName::placeholder {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+#searchByName:hover, #searchByName:focus, #searchByName:active {
+  border-color: var(--color-2);
+  outline: none;
+  box-shadow: 0px 0px 8px 0 rgba(212,132,50,0.75);
+  -webkit-box-shadow: 0px 0px 8px 0 rgba(212,132,50,0.75);
+  -moz-box-shadow: 0px 0px 8px 0 rgba(212,132,50,0.75);
+}
+
+#btnSearchByName {
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-back);
+  background-color: var(--color-1);
+  border: 0;
+  border-radius: 0 20px 20px 0;
 }

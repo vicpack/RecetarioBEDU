@@ -13,6 +13,7 @@
 *     1. TIPOGRAFIAS
 *     2. VARIABLES ROOT
 *     3. PLANTILLA
+*     4. INDEX
 ----------------------------------------------- */
 
 /*@import "normalize.css";*/
@@ -46,8 +47,8 @@
   --font-icon: 'IcoFont';
 }
 
-$color-1: var(--color1);
-$color-2: var(--color2);
+$color-1: var(--color-1);
+$color-2: var(--color-2);
 $color-dark1: var(--color-dark1);
 $color-dark2: var(--color-dark2);
 $color-txt: var(--color-txt);
@@ -132,4 +133,54 @@ body {
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+}
+
+/* ########## 3. INDEX  ########## */
+#searchByName {
+  text-align: center;
+  font-size: 1.0rem;
+  color: $color-1;
+  padding: 5px 15px;
+  border: 1px solid $color-1;
+  border-right: 0 !important;
+  border-radius: 20px 0 0 20px;
+  box-shadow: inset 0 0 3px 0 $color-dark1;
+
+  &::-webkit-input-placeholder {
+    /* Edge */
+    font-family: $font-title;
+    font-size: 1.25rem;
+    color: $color-1;
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-family: $font-title;
+    font-size: 1.25rem;
+    color: $color-1;
+  }
+
+  &::placeholder {
+    font-family: $font-title;
+    font-size: 1.25rem;
+    color: $color-1;
+  }
+
+  &:hover,
+  &:focus,
+  &:active{
+    border-color: $color-2;
+    border: 0 none;
+    box-shadow:0 none;
+  }
+}
+
+#btnSearchByName{
+  text-align: center;
+  font-family: $font-title;
+  font-size: 1.25rem;
+  color: $color-back;
+  background-color: $color-1;
+  border: 0;
+  border-radius: 0 20px 20px 0;
 }
