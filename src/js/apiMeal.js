@@ -17,6 +17,7 @@ function createMeal(meal) {
         <div class="row">
             <div class="column five">
                 <img src="${meal.strMealThumb}" alt="Meal Img" />
+                <p><strong>Category:</strong>${meal.strCategory}</p>
             </div>
             <div class="column seven">
                 <h4>${meal.strMeal}</h4>
