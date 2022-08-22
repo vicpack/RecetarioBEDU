@@ -18,6 +18,10 @@ function createMeal(meal) {
             <div class="column five">
                 <img src="${meal.strMealThumb}" alt="Meal Img" />
             </div>
+            <div class="column seven">
+                <h4>${meal.strMeal}</h4>
+                <p>${meal.strInstructions}</p>
+            </div>
         </div>
     `;
     console.log(meal.strMealThumb);
