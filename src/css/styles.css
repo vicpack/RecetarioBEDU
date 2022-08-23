@@ -12,7 +12,10 @@
 *     1. TIPOGRAFIAS
 *     2. VARIABLES ROOT
 *     3. PLANTILLA
-*     4. INDEX
+*     4. PARRAFO Y TITULOS
+*     5. BOTONES
+*     6. FORMULARIO
+*     7. INDEX
 ----------------------------------------------- */
 /*@import "normalize.css";*/
 /* ########## 1. TIPOGRAFIAS ########## */
@@ -24,7 +27,7 @@
   --color-2: #D48432;
   --color-dark1: #3E2B19;
   --color-dark2: #1D0F02;
-  --color-txt: #1E1E1E;
+  --color-txt: #312214;
   --color-back: #EBDED3;
   --color-body: #FAF2EA;
   --color-borde: var(--color-dark1);
@@ -104,48 +107,146 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ########## 3. INDEX  ########## */
-#searchByName {
+/* ########## 4. PARRAFO Y TITULOS  ########## */
+h5 {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* ########## 5. BOTONES  ########## */
+.btn-chef {
   text-align: center;
-  font-size: 1rem;
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  color: var(--color-back);
+  background-color: var(--color-1);
+  border: 0;
+  border-radius: 20px;
+}
+.btn-chef:hover, .btn-chef:active, .btn-chef:focus {
+  color: var(--color-back);
+  background-color: var(--color-dark1);
+}
+
+/* ########## 6. FORMULARIO  ########## */
+.card {
+  background-color: #EBDED3;
+  border: 1px solid #bcb1a8;
+  border-radius: 0;
+}
+
+/* ########## 7. FORMULARIO  ########## */
+.form-control, .form-select {
+  font-size: 0.875rem;
   color: var(--color-1);
-  padding: 6px 15px;
+  padding: 5px 15px;
   border: 1px solid var(--color-1);
   border-right: 0 !important;
-  border-radius: 20px 0 0 20px;
+  border-radius: 20px;
   box-shadow: inset 0 0 3px 0 var(--color-dark1);
 }
-#searchByName::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder, .form-select::-webkit-input-placeholder {
   /* Edge */
   font-family: var(--font-title);
   font-size: 1.25rem;
   color: var(--color-1);
 }
-#searchByName:-ms-input-placeholder {
+.form-control:-ms-input-placeholder, .form-select:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   font-family: var(--font-title);
   font-size: 1.25rem;
   color: var(--color-1);
 }
-#searchByName::placeholder {
+.form-control::placeholder, .form-select::placeholder {
   font-family: var(--font-title);
   font-size: 1.25rem;
   color: var(--color-1);
 }
-#searchByName:hover, #searchByName:focus, #searchByName:active {
+.form-control:hover, .form-control:focus, .form-control:active, .form-select:hover, .form-select:focus, .form-select:active {
   border-color: var(--color-2);
-  outline: none;
-  box-shadow: 0px 0px 8px 0 rgba(212,132,50,0.75);
-  -webkit-box-shadow: 0px 0px 8px 0 rgba(212,132,50,0.75);
-  -moz-box-shadow: 0px 0px 8px 0 rgba(212,132,50,0.75);
+  outline: 0 none;
+  box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
 }
 
-#btnSearchByName {
+.form-select {
+  padding-right: 2.25rem;
+}
+
+/* ########## 8. INDEX  ########## */
+#inputByName {
   text-align: center;
+  font-size: 1rem;
+  color: var(--color-1);
+  padding: 5px 15px;
+  border: 1px solid var(--color-1);
+  border-right: 0 !important;
+  border-radius: 20px 0 0 20px;
+  box-shadow: inset 0 0 3px 0 var(--color-dark1);
+}
+#inputByName::-webkit-input-placeholder {
+  /* Edge */
   font-family: var(--font-title);
   font-size: 1.25rem;
-  color: var(--color-back);
-  background-color: var(--color-1);
-  border: 0;
+  color: var(--color-1);
+}
+#inputByName:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+#inputByName::placeholder {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+#inputByName:hover, #inputByName:focus, #inputByName:active {
+  border-color: var(--color-2);
+  outline: 0 none;
+  box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+}
+
+#searchByName {
+  font-size: 1.25rem;
   border-radius: 0 20px 20px 0;
+}
+
+#searchRandom {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+  text-decoration: none;
+}
+#searchRandom i {
+  font-size: 2rem;
+}
+#searchRandom:hover {
+  color: var(--color-2);
+}
+
+#searchBycategories,
+#searchByArea {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--color-1);
+  padding-right: 3.5rem;
+  text-align: center;
+  text-align-last: center;
+}
+#searchBycategories option,
+#searchByArea option {
+  font-family: var(--font-main);
+  text-align: left;
+}
+
+#subSelect > div {
+  border-right: var(--linea-borde);
+  border-width: 2px;
+}
+#subSelect > div:last-child {
+  border-right: 0;
 }
