@@ -47,7 +47,5 @@ xhr.open("GET",`${API_URL}/api/json/v1/1/random.php`);
 xhr.send();*/
 console.log("nueva linea de texto, data antes de buscar: ", data);
 
-const printResults = document.getElementById("printResults");
-
 // Exponer HTMLResponse al scope global
 const HTMLResponse = document.querySelector("#app");

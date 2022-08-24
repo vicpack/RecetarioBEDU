@@ -1,6 +1,11 @@
 
+// const printResults = document.getElementById("printResults");
+const searchByName = document.getElementById("searchByName");
 function print(){
     console.log("function print is running");
+    var searchBtn = inputByName.value.toUpperCase();
+    console.log("Buscar: ",searchBtn)
+    apiByName(searchBtn);
     console.log(data);
 
         // Creé las variables dataHead y dataMeals para acceder a elementos del array
@@ -116,4 +121,5 @@ function print(){
         }
         
     }
-printResults.addEventListener("click", print);
+// printResults.addEventListener("click", print);
+searchByName.addEventListener("click", print);
