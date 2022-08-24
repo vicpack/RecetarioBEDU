@@ -140,9 +140,6 @@
   <!-- JS Files-->
   <!--JQuery, Popper + Boostrap -->
 
-
-
-
   <script src="./../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   <script src="./../js/API.js"></script>
   <script src="./../js/print.js"></script>
@@ -155,14 +152,12 @@
     inputByName.addEventListener("keypress", function (event) {
       // If the user presses the "Enter" key on the keyboard
       if (event.key === "Enter") {
-
         var search = inputByName.value.toUpperCase();
-        console.log("Buscar: ",search)
+        console.log("Buscar: ", search);
         apiByName(search);
       }
     });
   </script>
-
 </body>
 
 </html>
