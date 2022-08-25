@@ -1,6 +1,7 @@
 
 // const printResults = document.getElementById("printResults");
 const searchByName = document.getElementById("searchByName");
+
 function print(){
     console.log("function print is running");
     var searchBtn = inputByName.value.toUpperCase();
@@ -8,6 +9,8 @@ function print(){
     apiByName(searchBtn);
     console.log(data);
 
+    // Esperar a que se ejecute la funcion apiByName()
+    setTimeout(function () {
         // Creé las variables dataHead y dataMeals para acceder a elementos del array
         const dataHead = data[0][0]; 
         const dataMeals = data[0][1];
@@ -119,6 +122,8 @@ function print(){
             // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
             HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
         }
+      }, 500);
+        
         
     }
 // printResults.addEventListener("click", print);
