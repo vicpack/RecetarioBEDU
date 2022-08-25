@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Buscador de Recetas - Proyecto Final BEDU" />
+  <meta name="author" content="Ma. Eunice Vazquez, Eder Bermudez, Carlos Jiménez, Dionicio Mata, Victor Morales" />
+  <meta name="keywords" content="Buscador de Recetas, BEDU, JS" />
+
+  <title>Like A Cheff - Buscador de Recetas BEDU</title>
+
+  <link href="./../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./../css/styles.css" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./../favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./../favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./../favicon/favicon-16x16.png" />
+  <link rel="manifest" href="./../favicon/site.webmanifest" />
+  <link rel="mask-icon" href="./../favicon/safari-pinned-tab.svg" color="#914d0c" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+
+<body>
+  <header class="container-lg">
+    <div class="row mt-3 mb-4 d-flex align-items-center justify-content-md-between">
+      <div class="col col-2">
+        <img class="img-fluid" src="./../img/logo-LikeAChef.png" alt="Logotipo Like A Chef" />
+      </div>
+      <div class="col col-6">
+        <div class="row justify-content-md-center">
+          <input type="text" id="inputByName" class="col-8" placeholder="What are we going to cook today?"
+            title="Type in a name" />
+          <button type="button" id="searchByName" class="btn btn-chef col-3">
+            <i class="icofont-search-restaurant"></i> Search
+          </button>
+        </div>
+      </div>
+      <div class="col-4 text-center px-lg-4">
+        <h5 class="m-0">Don't know what to cook?</h5>
+        <!-- <button type="button" id="btnSearchRandom" class="btn btn-chef">Recommend me a recipe</button> -->
+        <a id="searchRandom" href="#">Recommend me a recipe <i class="icofont-culinary"></i></a>
+      </div>
+    </div>
+  </header>
+  <main class="container-lg">
+
+
+    <section id="indexResultados" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a short card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+  </main>
+  <footer class="container-lg"></footer>
+
+  <!-- JS Files-->
+  <!--JQuery, Popper + Boostrap -->
+
+  <script src="./../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="./../js/API.js"></script>
+  <script src="./../js/ejemplo.js"></script>
+
+  <script>
+    var inputByName = document.getElementById("searchByName");
+
+    // Execute a function when the user presses a key on the keyboard
+    inputByName.addEventListener("keypress", function (event) {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === "Enter") {
+        var search = inputByName.value.toUpperCase();
+        console.log("Buscar: ", search);
+        apiByName(search);
+      }
+    });
+  </script>
+</body>
+
+</html>
