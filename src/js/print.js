@@ -154,7 +154,7 @@ function print() {
       }
 
       // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
-      HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
+      // HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
     }
   }, 500);
 }
