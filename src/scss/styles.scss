@@ -188,7 +188,7 @@ h5{
     border-width: 20px 30px 0;
     border-style: solid;
     border-color: #edcdad transparent transparent;
-}
+  }
 }
 
 /* ########## 7. FORMULARIO  ########## */
@@ -219,7 +219,7 @@ h5{
     font-size: 1.25rem;
     color: $color-1;
   }
-
+  
   &:hover,
   &:focus,
   &:active{
@@ -312,7 +312,7 @@ h5{
 #subSelect > div {
   border-right: $linea-borde;
   border-width: 2px;
-
+  
   &:last-child{
     border-right: 0;
   }
