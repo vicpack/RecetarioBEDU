@@ -10,6 +10,11 @@ const totalResult = document.getElementById("totalResults");
 const divNoRresults = document.getElementById("noResults");
 const titleNoResults = document.getElementById("titleNoResults");
 
+function cleanResults(){
+  while (divCardsResult.lastElementChild) {
+    divCardsResult.removeChild(divCardsResult.lastElementChild);
+  }
+}
 
 function showResult(num){
   titleResults.innerHTML = `Recipes of '${inputByName.value}'`;
@@ -24,9 +29,7 @@ function noResult(search){
   titleNoResults.innerText = `Sorry, we couldn't find recipes for '${search}'`;
   divNoRresults.classList.remove("d-none");
 
-  while (divCardsResult.lastElementChild) {
-    divCardsResult.removeChild(divCardsResult.lastElementChild);
-  }
+  cleanResults();
 }
 
 
@@ -91,11 +94,8 @@ function print() {
     // </div>
     console.log(Array.isArray(dataMeals))
     if (Array.isArray(dataMeals)) {
-
+      cleanResults()
       showResult(dataMeals.length);
-
-
-
       for (const meal of dataMeals) {
         const col = document.createElement("div");
         col.className = "col";

@@ -10,6 +10,12 @@ var totalResult = document.getElementById("totalResults");
 var divNoRresults = document.getElementById("noResults");
 var titleNoResults = document.getElementById("titleNoResults");
 
+function cleanResults() {
+  while (divCardsResult.lastElementChild) {
+    divCardsResult.removeChild(divCardsResult.lastElementChild);
+  }
+}
+
 function showResult(num) {
   titleResults.innerHTML = "Recipes of '".concat(inputByName.value, "'");
   totalResult.innerHTML = "".concat(num, " recipes found");
@@ -22,10 +28,7 @@ function noResult(search) {
   divResult.classList.add("d-none");
   titleNoResults.innerText = "Sorry, we couldn't find recipes for '".concat(search, "'");
   divNoRresults.classList.remove("d-none");
-
-  while (divCardsResult.lastElementChild) {
-    divCardsResult.removeChild(divCardsResult.lastElementChild);
-  }
+  cleanResults();
 }
 
 function print() {
@@ -86,6 +89,7 @@ function print() {
     console.log(Array.isArray(dataMeals));
 
     if (Array.isArray(dataMeals)) {
+      cleanResults();
       showResult(dataMeals.length);
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
