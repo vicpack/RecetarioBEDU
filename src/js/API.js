@@ -1,6 +1,6 @@
 const API_URL = 'https://www.themealdb.com';
-
 const xhr = new XMLHttpRequest();
+
 
 function onRequestHandler() {
     if(this.readyState === 4 && this.status === 200){
