@@ -2,14 +2,13 @@
 const searchByName = document.getElementById("searchByName");
 var inputByName = document.getElementById("inputByName");
 
-const myNode = document.getElementById("app");
-
+const divCardsResult = document.getElementById("cardsResultados");
+    
 const divResult = document.getElementById("results");
 const titleResults = document.getElementById("titleResults");
 const totalResult = document.getElementById("totalResults");
 const divNoRresults = document.getElementById("noResults");
 const titleNoResults = document.getElementById("titleNoResults");
-
 
 
 function showResult(num){
@@ -25,8 +24,8 @@ function noResult(search){
   titleNoResults.innerText = `Sorry, we couldn't find recipes for '${search}'`;
   divNoRresults.classList.remove("d-none");
 
-  while (myNode.lastElementChild) {
-    myNode.removeChild(myNode.lastElementChild);
+  while (divCardsResult.lastElementChild) {
+    divCardsResult.removeChild(divCardsResult.lastElementChild);
   }
 }
 
@@ -47,10 +46,8 @@ function print() {
     console.log(dataMeals); // logs an array with 25 meal objects
 
 
-    // Crear el node HTMLReplace <section id="indexResultados" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-    const HTMLReplace = document.createElement("section");
-    HTMLReplace.className = "row row-cols-1 row-cols-md-4 g-4 mt-4";
-    HTMLReplace.id = "indexResultados";
+    // Crear el node divCardsResult <section id="indexResultados" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+    
 
     //Imprimir el nombre del primer platillo al HTML
     // const HTMLResponse = document.querySelector("#app");
@@ -77,9 +74,9 @@ function print() {
       // const noResults = document.createElement("p");
       // const text = document.createTextNode("No hay resultados");
       // noResults.appendChild(text);
-      // HTMLReplace.appendChild(noResults);
+      // divCardsResult.appendChild(noResults);
 
-      // HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
+      // HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
     }
     //Imprimir un card a partir de cada elemento del array
     // <div class="col">
@@ -153,11 +150,11 @@ function print() {
         btnGroup.appendChild(secButton);
 
         console.log(col)
-        HTMLReplace.appendChild(col);
+        divCardsResult.appendChild(col);
       }
 
       // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
-      HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
+      HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
     }
   }, 500);
 }

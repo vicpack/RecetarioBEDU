@@ -3,7 +3,7 @@
 // const printResults = document.getElementById("printResults");
 var searchByName = document.getElementById("searchByName");
 var inputByName = document.getElementById("inputByName");
-var myNode = document.getElementById("app");
+var divCardsResult = document.getElementById("cardsResultados");
 var divResult = document.getElementById("results");
 var titleResults = document.getElementById("titleResults");
 var totalResult = document.getElementById("totalResults");
@@ -23,8 +23,8 @@ function noResult(search) {
   titleNoResults.innerText = "Sorry, we couldn't find recipes for '".concat(search, "'");
   divNoRresults.classList.remove("d-none");
 
-  while (myNode.lastElementChild) {
-    myNode.removeChild(myNode.lastElementChild);
+  while (divCardsResult.lastElementChild) {
+    divCardsResult.removeChild(divCardsResult.lastElementChild);
   }
 }
 
@@ -42,11 +42,8 @@ function print() {
     console.log(dataHead); // logs "meals" 
 
     console.log(dataMeals); // logs an array with 25 meal objects
-    // Crear el node HTMLReplace <section id="indexResultados" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-
-    var HTMLReplace = document.createElement("section");
-    HTMLReplace.className = "row row-cols-1 row-cols-md-4 g-4 mt-4";
-    HTMLReplace.id = "indexResultados"; //Imprimir el nombre del primer platillo al HTML
+    // Crear el node divCardsResult <section id="indexResultados" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+    //Imprimir el nombre del primer platillo al HTML
     // const HTMLResponse = document.querySelector("#app");
     // HTMLResponse.innerHTML = `<ul></ul>`;
     // const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
@@ -71,8 +68,8 @@ function print() {
       noResult(searchBtn); // const noResults = document.createElement("p");
       // const text = document.createTextNode("No hay resultados");
       // noResults.appendChild(text);
-      // HTMLReplace.appendChild(noResults);
-      // HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
+      // divCardsResult.appendChild(noResults);
+      // HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
     } //Imprimir un card a partir de cada elemento del array
     // <div class="col">
     //     <div class="card h-100">
@@ -141,7 +138,7 @@ function print() {
           btnGroup.appendChild(viewButton);
           btnGroup.appendChild(secButton);
           console.log(col);
-          HTMLReplace.appendChild(col);
+          divCardsResult.appendChild(col);
         } // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
 
       } catch (err) {
@@ -159,7 +156,7 @@ function print() {
         }
       }
 
-      HTMLResponse.replaceChild(HTMLReplace, HTMLResponse.childNodes[0]);
+      HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
     }
   }, 500);
 }
