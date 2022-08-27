@@ -31,23 +31,35 @@ function createMeal(meal) {
 
   mealContainer.innerHTML = `
         <div class="card-body" id="contenedor">
-            <div class="card-body">
+            <div class="card border-0 shadow cursor" style="width: 18rem; border-radius: 10px">
                 <img class="card-img-top" style="width: 18rem; border-radius: 10px 10px 0 0" src="${
                   meal.strMealThumb
                 }" alt="Meal Img" />
-                <p><strong>Category:</strong>${meal.strCategory}</p>
-                <p><strong>Area:</strong>${meal.strArea}</p>
-                <p><strong>Tags:</strong>${meal.strTags
-                  .split(",")
-                  .join(", ")}</p>
-                <h5 class="card-title text-center">Ingredientes</h5>
-                <ul>
+                <div class="card-body">
+                    <p class="card-text"><strong>Category: </strong>${
+                      meal.strCategory
+                    }</p>
+                    <p class="card-text"><strong>Area: </strong>${
+                      meal.strArea
+                    }</p>
+                    <p class="card-text"><strong>Tags: </strong>${meal.strTags
+                      .split(",")
+                      .join(", ")}</p>
+                </div>
+                <br>
+                <div class="card-body">
+                <h5 class="card-title">Ingredients</h5>
+                <ul class="list-group list-group-flush">
                     ${ingredients
-                      .map((ingredient) => `<li>${ingredient}</li>`)
+                      .map(
+                        (ingredient) =>
+                          `<li class="list-group-item">${ingredient}</li>`
+                      )
                       .join("")}
                 </ul>
                 </div>
-            <div class="card-body">
+            </div>
+            <div class="col-md-4">
                 <h4>${meal.strMeal}</h4>
                 <p>${meal.strInstructions}</p>
             </div>

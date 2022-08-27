@@ -16,3 +16,14 @@
 #contenedor {
   display: flex;
 }
+
+h5 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #914d0c;
+}
+
+strong,
+h3 {
+  color: #914d0c;
+}
