@@ -61,13 +61,15 @@ function createMeal(meal) {
             </div>
               <div class="col-md-8">
               <div class="card border-0 shadow cursor" style="width: 55rem; border-radius: 10px">
-                  <h4 class="card-title">${meal.strMeal}</h4>
+                  <h4 class="card-title text-center">${meal.strMeal}</h4>
+                  <br>
                   <p>${meal.strInstructions}</p>
               </div>
-                  <div class="card-body">
+              <br>
+                  <div class="card border-0 shadow cursor" style="width: 55rem; border-radius: 10px">
                         <br>
-                    <h5 class="card-title text-center">Video de receta</h5>
-                        <div class="videoWrapper"">
+                    <h4 class="card-title text-center">Meal video</h4>
+                        <div class="videoWrapper" style="width: 55rem; border-radius: 10px">
                           <iframe src="https://www.youtube.com/embed/${meal.strYoutube.slice(
                             -11
                           )}" />
