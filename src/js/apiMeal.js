@@ -1,20 +1,7 @@
-const getMealBtn = document.getElementById("get_meal_btn");
+//Obtenemos los elementos del id meal
 const mealContainer = document.getElementById("meal");
 
-//Funcion que obtiene las recetas aleatoreas cuando se dispare el evento onclick
-/*
-getMealBtn.addEventListener('click',() =>{
-    fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-        .then(res => res.json())
-        .then(res => {
-               /*lo colocamos en la posición 0 por que la API
-            viene solo con un objeto 
-            console.log('res');
-            createMeal(res.meals[0]);
-        });
-});
-*/
-
+//Funcion que obtiene las recetas aleatoreas cuando se carge el DOM
 document.addEventListener("DOMContentLoaded", () => {
   fetch("https://www.themealdb.com/api/json/v1/1/random.php")
     .then((res) => res.json())
