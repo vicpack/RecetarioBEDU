@@ -59,7 +59,7 @@ function createMeal(meal) {
                 </ul>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <h4>${meal.strMeal}</h4>
                 <p>${meal.strInstructions}</p>
             </div>
