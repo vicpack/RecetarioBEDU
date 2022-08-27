@@ -23,13 +23,13 @@
 @import url("./../libs/icofont/icofont.min.css");
 /* ########## 2. VARIABLES ROOT ########## */
 :root {
-  --color-1: #914D0C;
-  --color-2: #D48432;
-  --color-dark1: #3E2B19;
-  --color-dark2: #1D0F02;
+  --color-1: #914d0c;
+  --color-2: #d48432;
+  --color-dark1: #3e2b19;
+  --color-dark2: #1d0f02;
   --color-txt: #312214;
-  --color-back: #EBDED3;
-  --color-body: #FAF2EA;
+  --color-back: #ebded3;
+  --color-body: #faf2ea;
   --color-borde: var(--color-dark1);
   --linea-borde: 1px solid var(--color-borde);
   --font-main: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -75,7 +75,8 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   border: solid rgba(0, 0, 0, 0.15);
   border-width: 1px 0;
-  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
 .b-example-vr {
@@ -123,7 +124,9 @@ h5 {
   border: 0;
   border-radius: 20px;
 }
-.btn-chef:hover, .btn-chef:active, .btn-chef:focus {
+.btn-chef:hover,
+.btn-chef:active,
+.btn-chef:focus {
   color: var(--color-back);
   background-color: var(--color-dark1);
 }
@@ -161,7 +164,8 @@ h5 {
 }
 
 /* ########## 7. FORMULARIO  ########## */
-.form-control, .form-select {
+.form-control,
+.form-select {
   font-size: 0.875rem;
   color: var(--color-1);
   padding: 5px 15px;
@@ -170,24 +174,32 @@ h5 {
   border-radius: 20px;
   box-shadow: inset 0 0 3px 0 var(--color-dark1);
 }
-.form-control::-webkit-input-placeholder, .form-select::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder,
+.form-select::-webkit-input-placeholder {
   /* Edge */
   font-family: var(--font-title);
   font-size: 1.25rem;
   color: var(--color-1);
 }
-.form-control:-ms-input-placeholder, .form-select:-ms-input-placeholder {
+.form-control:-ms-input-placeholder,
+.form-select:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   font-family: var(--font-title);
   font-size: 1.25rem;
   color: var(--color-1);
 }
-.form-control::placeholder, .form-select::placeholder {
+.form-control::placeholder,
+.form-select::placeholder {
   font-family: var(--font-title);
   font-size: 1.25rem;
   color: var(--color-1);
 }
-.form-control:hover, .form-control:focus, .form-control:active, .form-select:hover, .form-select:focus, .form-select:active {
+.form-control:hover,
+.form-control:focus,
+.form-control:active,
+.form-select:hover,
+.form-select:focus,
+.form-select:active {
   border-color: var(--color-2);
   outline: 0 none;
   box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
@@ -227,7 +239,9 @@ h5 {
   font-size: 1.25rem;
   color: var(--color-1);
 }
-#inputByName:hover, #inputByName:focus, #inputByName:active {
+#inputByName:hover,
+#inputByName:focus,
+#inputByName:active {
   border-color: var(--color-2);
   outline: 0 none;
   box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
