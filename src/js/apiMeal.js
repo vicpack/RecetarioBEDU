@@ -62,16 +62,17 @@ function createMeal(meal) {
             <div class="col-md-8">
                 <h4>${meal.strMeal}</h4>
                 <p>${meal.strInstructions}</p>
+                <div class="card-body">
+                <h5 class="card-title text-center">Video de receta</h5>
+                    <div class="videoWrapper"">
+                        <iframe src="https://www.youtube.com/embed/${meal.strYoutube.slice(
+                          -11
+                        )}" />
+                    </div>
+            </div>
             </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title text-center">Video de receta</h5>
-                <div class="videoWrapper">
-                    <iframe src="https://www.youtube.com/embed/${meal.strYoutube.slice(
-                      -11
-                    )}" />
-                </div>
-        </div>
+       
     `;
   console.log(meal.strMealThumb);
 }

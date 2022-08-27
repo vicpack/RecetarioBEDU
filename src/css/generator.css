@@ -13,6 +13,9 @@
   height: 100%;
 }
 
+#recommendation {
+  padding-bottom: 20px;
+}
 #contenedor {
   display: flex;
   flex-direction: row;
