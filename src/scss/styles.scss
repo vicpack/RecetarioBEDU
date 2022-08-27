@@ -63,7 +63,6 @@ $font-main: var(--font-main);
 $font-title: var(--font-title);
 $font-icon: var(--font-icon);
 
-
 /* ########## 3. PLANTILLA ########## */
 html {
   font-family: sans-serif;
@@ -159,12 +158,37 @@ h5{
   }
 }
 
-/* ########## 6. FORMULARIO  ########## */
+/* ########## 6. CARDS & ALERTS  ########## */
 
 .card{
-  background-color: #EBDED3;
-  border: 1px solid #bcb1a8;
+  background-color: #f7e8d9;
+  border: 1px solid #edcdad;
   border-radius: 0;
+  .card-title{
+    font-family: $font-title;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}
+
+.alert-result{
+  background-color: #f7e8d9;
+  border: 1px solid #edcdad;
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: calc(50% - 10px);
+    width: 0;
+    height: 0;
+    border-width: 20px 30px 0;
+    border-style: solid;
+    border-color: #edcdad transparent transparent;
+  }
 }
 
 /* ########## 7. FORMULARIO  ########## */
@@ -195,7 +219,7 @@ h5{
     font-size: 1.25rem;
     color: $color-1;
   }
-
+  
   &:hover,
   &:focus,
   &:active{
@@ -288,7 +312,7 @@ h5{
 #subSelect > div {
   border-right: $linea-borde;
   border-width: 2px;
-
+  
   &:last-child{
     border-right: 0;
   }
