@@ -28,7 +28,11 @@ function createMeal(meal) {
 
     mealContainer.innerHTML = `
         <div class="row">
+<<<<<<< HEAD
+            <div class="column five">
+=======
             <div class="columns five">
+>>>>>>> main
                 <img src="${meal.strMealThumb}" alt="Meal Img" />
                 <p><strong>Category:</strong>${meal.strCategory}</p>
                 <p><strong>Area:</strong>${meal.strArea}</p>
