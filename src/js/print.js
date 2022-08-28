@@ -162,12 +162,11 @@ function print() {
     }, 500);
   } else {
     console.log("input is empty");
+    cleanResults();
     const emptyTag = document.createElement("p");
     const emptyText = document.createTextNode("No has ingresado nada");
     emptyTag.appendChild(emptyText);
-    if (divCardsResult.firstChild){
-      divCardsResult.replaceChild(emptyTag, divCardsResult.firstChild);
-    } else {divCardsResult.appendChild(emptyTag)};
+    divCardsResult.appendChild(emptyTag);
   }  
 }
 
