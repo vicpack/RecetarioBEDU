@@ -40,16 +40,20 @@ const xhraread= new XMLHttpRequest();
 
 HTMLall.addEventListener('change',getdishesbyarea)
 
+// Exponer data2 al scope global
+let data2;
+
 function dish() {
     if(this.readyState === 4 && this.status === 200){
-    const data2=Object.entries(JSON.parse(this.response))
+    data2=Object.entries(JSON.parse(this.response))
     let allDishesByAreas= data2[0][1].map(function(element){ //Here I´m moving all the areas from their object to an array of objects
         return {'strMeal':`${element.strMeal}`,
                 'strMealThumb':`${element.strMealThumb}`,
                 'idMeal':`${element.idMeal}`}
     })
     console.log(allDishesByAreas)
-
+    data = data2;
+    createCards();
 
 } 
 
