@@ -1,14 +1,42 @@
-.videoWrapper{
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 25px;
-    height:0;
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Pacifico&display=swap");
+@import url("./../libs/icofont/icofont.min.css");
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
 }
 
-.videoWrapper iframe{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
+#recommendation {
+  padding-bottom: 20px;
+}
+#contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h5 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #914d0c;
+}
+
+strong,
+h2,
+h3,
+h4 {
+  color: #914d0c;
+}
+
+
