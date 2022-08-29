@@ -39,11 +39,4 @@ h4 {
   color: #914d0c;
 }
 
-@media only screen and (min-width: 768px) {
-  iframe {
-    height: 13em;
-  }
-  .card {
-    width: 50%;
-  }
-}
+
