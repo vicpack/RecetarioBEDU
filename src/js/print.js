@@ -192,6 +192,11 @@ function print() {
   } else {
     console.log("input is empty");
     cleanResults();
+
+    // Limpia el buscador despues de buscar una comida
+    const mealDetailsSection = document.getElementById('meal-details-section');
+    mealDetailsSection.innerHTML = "";
+
     const emptyTag = document.createElement("p");
     const emptyText = document.createTextNode("No has ingresado nada");
     emptyTag.appendChild(emptyText);
