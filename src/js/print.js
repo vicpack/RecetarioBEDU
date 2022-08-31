@@ -10,6 +10,36 @@ const totalResult = document.getElementById("totalResults");
 const divNoRresults = document.getElementById("noResults");
 const titleNoResults = document.getElementById("titleNoResults");
 
+function apiByName(nameSearch) {
+  const xhrequest = new XMLHttpRequest();
+
+  xhrequest.addEventListener("load", function(){
+      if(this.readyState === 4 && this.status === 200){
+      //0 = UNSET no se ha llamado al metodo open
+      //1 = OPENED , se ha llamado al metodo opened
+      //2 = HEADERS_RECEIVED, se está llamando al metodo send()
+      //3 = LOADING, esta cargando, es decir, esta recibiendo la respuesta
+      //4 = DONE , se ha completado la operacion del
+      data = Object.entries(JSON.parse(this.response));
+      // const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
+      console.log("Array: ",Array.isArray(data));
+      console.log("data:", data);
+
+  }
+  });
+  xhrequest.open("GET",`${API_URL}/api/json/v1/1/search.php?s=${nameSearch}`);
+  xhrequest.send();    
+}
+/*
+xhr.addEventListener("load", onRequestHandler);
+xhr.open("GET",`${API_URL}/api/json/v1/1/random.php`);
+xhr.send();*/
+
+
+// Exponer HTMLResponse al scope global
+
+const HTMLResponse = document.querySelector("#app");
+
 function cleanResults(){
   while (divCardsResult.lastElementChild) {
     divCardsResult.removeChild(divCardsResult.lastElementChild);
@@ -185,7 +215,7 @@ function print() {
       searchBtn = inputByName.value.toUpperCase();
     console.log("Buscar: ", searchBtn)
     apiByName(searchBtn);
-    console.log(data);
+    // console.log(data);
 
     // Esperar a que se ejecute la funcion apiByName()
     setTimeout(createCards, 500);

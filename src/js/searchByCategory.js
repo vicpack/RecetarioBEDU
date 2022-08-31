@@ -1,3 +1,4 @@
+const API_URL = 'https://www.themealdb.com';
 const xhrcat = new XMLHttpRequest();
 const HTMLallcat=document.getElementById("searchBycategories")
 
