@@ -233,6 +233,7 @@ const showMealDetailsDiv = data => {
     const mealPhoto = meal.strMealThumb;
     const mealName = meal.strMeal;
     const mealInstructions = meal.strInstructions;
+    window.location.href += `/${meal.idMeal}`; // regresa la URL mostrando el ID de la receta
 
     console.log(meal.strInstructions)
 
