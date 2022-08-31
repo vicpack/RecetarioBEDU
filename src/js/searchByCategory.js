@@ -40,16 +40,21 @@ const xhrcatd= new XMLHttpRequest();
 
 HTMLallcat.addEventListener('change',getdishesbycategory)
 
+// Exponer data4 al scope global
+let data4;
+
 function dishcat() {
     if(this.readyState === 4 && this.status === 200){
-    const data4=Object.entries(JSON.parse(this.response))
+    data4=Object.entries(JSON.parse(this.response))
     let allDishesByCategory= data4[0][1].map(function(element){ //Here I´m moving all the areas from their object to an array of objects
         return {'strMeal':`${element.strMeal}`,
                 'strMealThumb':`${element.strMealThumb}`,
                 'idMeal':`${element.idMeal}`}
     })
+    console.log(data4)
     console.log(allDishesByCategory)
-
+    data = data4;
+    createCards();
 
 } 
 

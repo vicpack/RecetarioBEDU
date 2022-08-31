@@ -15,6 +15,31 @@
   left: 0;
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
+}
+
+#recommendation {
+  padding-bottom: 20px;
+}
+#contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h5 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #914d0c;
+}
+
+strong,
+h2,
+h3,
+h4 {
+  color: #914d0c;
+=======
+>>>>>>> 2fdc2e842516ae683e6948fb883cd69821a573d7
 }
 
 #recommendation {
@@ -38,3 +63,5 @@ h3,
 h4 {
   color: #914d0c;
 }
+
+
