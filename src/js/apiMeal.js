@@ -44,9 +44,11 @@ function createMeal(meal) {
                   <p class="card-text"><strong>Area: </strong>${
                     meal.strArea
                   }</p>
-                  <p class="card-text"><strong>Tags: </strong>${meal.strTags
-                    .split(",")
-                    .join(", ")}</p>
+                  <p class="card-text"><strong>Tags: </strong>${
+                    typeof meal.strTags === "string"
+                      ? meal.strTags.split(",").join(", ")
+                      : "unknown tag"
+                  }</p>
               </div>
               <br>
               <div class="card-body">
