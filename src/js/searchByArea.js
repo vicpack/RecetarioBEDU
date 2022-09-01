@@ -40,6 +40,9 @@ const xhraread= new XMLHttpRequest();
 
 HTMLall.addEventListener('change',getdishesbyarea)
 
+function getSelectedValue(){var selectedvalue=document.getElementById("searchByArea").value
+return selectedvalue}
+
 // Exponer data2 al scope global
 let data2;
 
@@ -53,13 +56,18 @@ function dish() {
     })
     console.log(allDishesByAreas)
     data = data2;
+    document.getElementById('inputByName').value=''
+    document.getElementById('searchBycategories').value='0'
     createCards();
+
+  
 
 } 
 
 }
 
 function getdishesbyarea(e){
+
     xhraread.addEventListener('load',dish)
     console.log(e.target.value)
     xhraread.open("GET",`${API_URL}/api/json/v1/1/filter.php?a=${e.target.value}`);

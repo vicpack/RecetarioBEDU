@@ -24,6 +24,8 @@ function apiByName(nameSearch) {
       // const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
       console.log("Array: ",Array.isArray(data));
       console.log("data:", data);
+      document.getElementById('searchBycategories').value='0'
+      document.getElementById('searchByArea').value='0'
 
   }
   });
@@ -47,10 +49,25 @@ function cleanResults(){
 }
 
 function showResult(num){
-  titleResults.innerHTML = `Recipes of '${inputByName.value}'`;
-  totalResult.innerHTML = `${num} recipes found`;
-  divNoRresults.classList.add('d-none');
-  divResult.classList.remove('d-none');
+  let newname2=getSelectedValue2()
+  let newname= getSelectedValue()
+  if (inputByName.value !== ''){
+    titleResults.innerHTML = `Recipes of '${inputByName.value}'`;
+    totalResult.innerHTML = `${num} recipes found`;
+    divNoRresults.classList.add('d-none');
+    divResult.classList.remove('d-none');
+  }else if (newname !== 'Select a country' && newname !== '0' ){
+    titleResults.innerHTML = `Recipes of '${newname}'`;
+    totalResult.innerHTML = `${num} recipes found`;
+    divNoRresults.classList.add('d-none');
+    divResult.classList.remove('d-none');
+  }else if(newname2 !==''){
+    titleResults.innerHTML = `Recipes of '${newname2}'`;
+    totalResult.innerHTML = `${num} recipes found`;
+    divNoRresults.classList.add('d-none');
+    divResult.classList.remove('d-none');
+  }
+
 }
 
 function noResult(search){

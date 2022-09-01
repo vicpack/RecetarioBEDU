@@ -44,6 +44,9 @@ HTMLallcat.addEventListener('change',getdishesbycategory)
 // Exponer data4 al scope global
 let data4;
 
+function getSelectedValue2(){var selectedvalue=document.getElementById("searchBycategories").value
+return selectedvalue}
+
 function dishcat() {
     if(this.readyState === 4 && this.status === 200){
     data4=Object.entries(JSON.parse(this.response))
@@ -55,7 +58,10 @@ function dishcat() {
     console.log(data4)
     console.log(allDishesByCategory)
     data = data4;
+    document.getElementById('inputByName').value=''
+    document.getElementById('searchByArea').value='0'
     createCards();
+
 
 } 
 
