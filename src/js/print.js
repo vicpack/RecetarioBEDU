@@ -194,7 +194,7 @@ function createCards(){
         // btnGroup.appendChild(viewButton);
         // btnGroup.appendChild(secButton);
         const viewInfo = `
-        <button onclick="getMealInfo(${meal.idMeal})" type="button" class="btn btn-sm btn-outline-secondary">Ver detalles</button>
+        <button onclick="getMealInfo(${meal.idMeal})" type="button" class="btn btn-sm btn-outline-secondary">View Recipe</button>
             `
         btnGroup.innerHTML = viewInfo;
         // const mealInfoDiv = document.createElement('div');
