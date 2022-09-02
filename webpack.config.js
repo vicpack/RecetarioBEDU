@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-      bundle: './src/js/API.js'
+      bundle: './src/js/apiMeal.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
