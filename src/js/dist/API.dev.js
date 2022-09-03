@@ -167,7 +167,7 @@ function print() {
 
         var viewButton = createNode("button", "Ver detalles");
         var secButton = createNode("button", "Otro botón");
-        viewButton.className = "btn btn-sm btn-outline-secondary";
+        viewButton.className = "btn-detail";
         secButton.className = "btn btn-sm btn-outline-secondary";
         btnGroup.appendChild(viewButton);
         btnGroup.appendChild(secButton);

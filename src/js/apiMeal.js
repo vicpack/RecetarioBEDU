@@ -27,66 +27,72 @@ function createMeal(meal) {
       break;
     }
   }
-  console.log(ingredients);
 
   mealContainer.innerHTML = `
-  <div class="card-body" id="contenedor">
-  <div class="row g-3">
-      <div class="col-12 col-md-6 col-lg-4">
-          <div class="border-0 shadow cursor" style="width: 18rem; border-radius: 10px">
-              <img class="card-img-top" style="width: 18rem; border-radius: 10px 10px 0 0" src="${
-                meal.strMealThumb
-              }" alt="Meal Img" />
-              <div class="card-body">
-                  <p class="card-text"><strong>Category: </strong>${
-                    meal.strCategory
-                  }</p>
-                  <p class="card-text"><strong>Area: </strong>${
-                    meal.strArea
-                  }</p>
-
-                  <p class="card-text"><strong>Tags: </strong>${
-                    typeof meal.strTags === "string"
-                      ? meal.strTags.split(",").join(", ")
-                      : "unknown tag"
-                  }</p>
-
-              </div>
-              <br>
-              <div class="card-body">
-                  <h5 class="card-title">Ingredients</h5>
-                  <ul class="list-group list-group-flush">
-                      ${ingredients
-                        .map(
-                          (ingredient) =>
-                            `<li class="list-group-item">${ingredient}</li>`
-                        )
-                        .join("")}
-                  </ul>
-              </div>
+    <div class="row g-4 mt-2">
+      <div class="col-12 col-md-6 col-lg-5">
+        <div class="card">
+          <img class="card-img-top" src="${meal.strMealThumb}" alt="Meal Img" />
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <p class="card-text catArea">Category: <span>${meal.strCategory}</span></p>
+              <p class="card-text catArea">Area: <span>${meal.strArea}</span></p>
+            </div>
+            <p class="card-text tags">Tags:
+              ${
+                typeof meal.strTags === "string"
+                ? meal.strTags.split(",").map(
+                  (data) =>`<span>${data}</span>`
+                ).join("")
+                : "<span class=d-none>unknown tag</none>"
+              }
+            </p>
           </div>
+        </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
-          <div class="col-md-8">
-              <div class="card border-0 shadow cursor" style="width: 55rem; border-radius: 10px">
-                  <h4 class="card-title text-center">${meal.strMeal}</h4>
-                  <br>
-                  <p>${meal.strInstructions}</p>
-              </div>
-              <br>
-              <div class="card border-0 shadow cursor" style="width: 55rem; border-radius: 10px">
-                  <br>
-                  <h4 class="card-title text-center">Meal video</h4>
-                  <div class="videoWrapper" style="width: 55rem; border-radius: 10px">
-                      <iframe src="https://www.youtube.com/embed/${meal.strYoutube.slice(
-                        -11
-                      )}" />
-                  </div>
-              </div>
+      <div class="col-12 col-md-6 col-lg-7">
+        <h1>${meal.strMeal}</h1>
+
+        <div class="card mb-4">
+          <div class="card-header">
+          <h5 class="card-title text-center m-0">Ingredients</h5>
           </div>
+          <div class="card-body">
+            <ul class="m-0">
+              ${ingredients
+                .map(
+                  (ingredient) =>`<li>${ingredient}</li>`
+                  )
+                .join("")
+              }
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title text-center m-0">Instructions</h5>
+          </div>
+          <div id="instructions" class="card-body">
+            ${meal.strInstructions
+              .split('.')
+              .map(
+                (data) =>`<p>${data}.</p>`
+              )
+              .join("")
+            }
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title text-center m-0">Meal video</h5>
+          </div>
+          <div class="videoWrapper">
+            <iframe src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}" />
+          </div>
+        </div>
       </div>
-  </div>
-</div>
+    </div>
     `;
-  console.log(meal.strMealThumb);
+
 }

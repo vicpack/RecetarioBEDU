@@ -194,7 +194,7 @@ function createCards(){
         // btnGroup.appendChild(viewButton);
         // btnGroup.appendChild(secButton);
         const viewInfo = `
-        <button onclick="getMealInfo(${meal.idMeal})" type="button" class="btn btn-sm btn-outline-secondary">View Recipe</button>
+        <button onclick="getMealInfo(${meal.idMeal})" type="button" class="btn btn-detail">View Recipe <i class="icofont-hand-drawn-right"></i> </button>
             `
         btnGroup.innerHTML = viewInfo;
         // const mealInfoDiv = document.createElement('div');
@@ -247,11 +247,9 @@ inputByName.addEventListener("keypress", function (event) {
 });
 
 function getMealInfo (mealID) {
-
-  
-      window.location.href = `/src/app/receta.html?i=${mealID}`; // regresa la URL mostrando el ID de la receta
+    window.location.href = `./receta.html?i=${mealID}`; // regresa la URL mostrando el ID de la receta
       const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`
-  fetch(url)
-      .then(res => res.json())
-      .then(data => console.log(data));
+        fetch(url)
+        .then(res => res.json())
+        .then(data => console.log(data));
 } 

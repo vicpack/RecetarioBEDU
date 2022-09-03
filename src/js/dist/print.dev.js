@@ -10,6 +10,35 @@ var totalResult = document.getElementById("totalResults");
 var divNoRresults = document.getElementById("noResults");
 var titleNoResults = document.getElementById("titleNoResults");
 
+function apiByName(nameSearch) {
+  var xhrequest = new XMLHttpRequest();
+  xhrequest.addEventListener("load", function () {
+    if (this.readyState === 4 && this.status === 200) {
+      //0 = UNSET no se ha llamado al metodo open
+      //1 = OPENED , se ha llamado al metodo opened
+      //2 = HEADERS_RECEIVED, se está llamando al metodo send()
+      //3 = LOADING, esta cargando, es decir, esta recibiendo la respuesta
+      //4 = DONE , se ha completado la operacion del
+      data = Object.entries(JSON.parse(this.response)); // const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
+
+      console.log("Array: ", Array.isArray(data));
+      console.log("data:", data);
+      document.getElementById('searchBycategories').value = '0';
+      document.getElementById('searchByArea').value = '0';
+    }
+  });
+  xhrequest.open("GET", "".concat(API_URL, "/api/json/v1/1/search.php?s=").concat(nameSearch));
+  xhrequest.send();
+}
+/*
+xhr.addEventListener("load", onRequestHandler);
+xhr.open("GET",`${API_URL}/api/json/v1/1/random.php`);
+xhr.send();*/
+// Exponer HTMLResponse al scope global
+
+
+var HTMLResponse = document.querySelector("#app");
+
 function cleanResults() {
   while (divCardsResult.lastElementChild) {
     divCardsResult.removeChild(divCardsResult.lastElementChild);
@@ -17,10 +46,25 @@ function cleanResults() {
 }
 
 function showResult(num) {
-  titleResults.innerHTML = "Recipes of '".concat(inputByName.value, "'");
-  totalResult.innerHTML = "".concat(num, " recipes found");
-  divNoRresults.classList.add('d-none');
-  divResult.classList.remove('d-none');
+  var newname2 = getSelectedValue2();
+  var newname = getSelectedValue();
+
+  if (inputByName.value !== '') {
+    titleResults.innerHTML = "Recipes of '".concat(inputByName.value, "'");
+    totalResult.innerHTML = "".concat(num, " recipes found");
+    divNoRresults.classList.add('d-none');
+    divResult.classList.remove('d-none');
+  } else if (newname !== 'Select a country' && newname !== '0') {
+    titleResults.innerHTML = "Recipes of '".concat(newname, "'");
+    totalResult.innerHTML = "".concat(num, " recipes found");
+    divNoRresults.classList.add('d-none');
+    divResult.classList.remove('d-none');
+  } else if (newname2 !== '') {
+    titleResults.innerHTML = "Recipes of '".concat(newname2, "'");
+    totalResult.innerHTML = "".concat(num, " recipes found");
+    divNoRresults.classList.add('d-none');
+    divResult.classList.remove('d-none');
+  }
 }
 
 function noResult(search) {
@@ -29,140 +73,166 @@ function noResult(search) {
   titleNoResults.innerText = "Sorry, we couldn't find recipes for '".concat(search, "'");
   divNoRresults.classList.remove("d-none");
   cleanResults();
-}
-
-function print() {
-  console.log("function print is running");
-  var searchBtn = inputByName.value.toUpperCase();
-  console.log("Buscar: ", searchBtn);
-  apiByName(searchBtn);
-  console.log(data); // Esperar a que se ejecute la funcion apiByName()
-
-  setTimeout(function () {
-    // Creé las variables dataHead y dataMeals para acceder a elementos del array
-    var dataHead = data[0][0];
-    var dataMeals = data[0][1];
-    console.log(dataHead); // logs "meals" 
-
-    console.log(dataMeals); // logs an array with 25 meal objects
-    // Crear el node divCardsResult <section id="indexResultados" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-    //Imprimir el nombre del primer platillo al HTML
-    // const HTMLResponse = document.querySelector("#app");
-    // HTMLResponse.innerHTML = `<ul></ul>`;
-    // const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
-    // HTMLResponse.firstChild.innerHTML = `<li>${dataMeals[0].strMeal}</li>`;
-    // Cree la function createNode
-
-    function createNode(type, child) {
-      var node = document.createElement(type);
-
-      if (typeof child === "string") {
-        var text = document.createTextNode(child);
-        node.appendChild(text);
-      } else {
-        node.appendChild(child);
-      }
-
-      return node;
-    }
-
-    if (!dataMeals) {
-      console.log("dataMeals is null");
-      noResult(searchBtn); // const noResults = document.createElement("p");
-      // const text = document.createTextNode("No hay resultados");
-      // noResults.appendChild(text);
-      // divCardsResult.appendChild(noResults);
-      // HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
-    } //Imprimir un card a partir de cada elemento del array
-    // <div class="col">
-    //     <div class="card h-100">
-    //         <img src="..." class="card-img-top" alt="...">
-    //         <div class="card-body">
-    //             <h5 class="card-title">Card title</h5>
-    //             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-    //             content. This content is a little bit longer.</p>
-    //         </div>
-    //     </div>
-    // </div>
+} // Cree la function createNode
 
 
-    console.log(Array.isArray(dataMeals));
+function createNode(type, child) {
+  var node = document.createElement(type);
 
-    if (Array.isArray(dataMeals)) {
-      cleanResults();
-      showResult(dataMeals.length);
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
+  if (typeof child === "string") {
+    var text = document.createTextNode(child);
+    node.appendChild(text);
+  } else {
+    node.appendChild(child);
+  }
 
-      try {
-        for (var _iterator = dataMeals[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var meal = _step.value;
-          var col = document.createElement("div");
-          col.className = "col"; // Add <div class="card shadow-sm">
+  return node;
+} // Crear tarjetas para imprimir los resultados
 
-          var card = document.createElement("div");
-          card.className = "card h-100";
-          col.appendChild(card); //Add img with class "bd-placeholder-img card-img-top"
 
-          var img = document.createElement("img");
-          img.className = "bd-placeholder-img card-img-top"; // img.height = "225";
+function createCards() {
+  // Creé las variables dataHead y dataMeals para acceder a elementos del array
+  var dataHead = data[0][0];
+  var dataMeals = data[0][1];
+  console.log(dataHead); // logs "meals" 
 
-          img.alt = "" + meal.strMeal;
-          img.role = "img";
-          img.src = "" + meal.strMealThumb;
-          card.appendChild(img); // <div class="card-body"> 
+  console.log(dataMeals); // logs an array with 25 meal objects
+  // Crear el node divCardsResult <section id="indexResultados" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+  //Imprimir el nombre del primer platillo al HTML
+  // const HTMLResponse = document.querySelector("#app");
+  // HTMLResponse.innerHTML = `<ul></ul>`;
+  // const template = data.map((meals) => `<li>${meals.strMeal}</li>`);
+  // HTMLResponse.firstChild.innerHTML = `<li>${dataMeals[0].strMeal}</li>`;
 
-          var cardBody = document.createElement("div");
-          cardBody.className = "card-body";
-          card.appendChild(cardBody); // Add <h5 class="card-title">Card title</h5>
+  if (!dataMeals) {
+    console.log("dataMeals is null");
+    noResult(searchBtn); // const noResults = document.createElement("p");
+    // const text = document.createTextNode("No hay resultados");
+    // noResults.appendChild(text);
+    // divCardsResult.appendChild(noResults);
+    // HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
+  } //Imprimir un card a partir de cada elemento del array
+  // <div class="col">
+  // <a href="#meal-details-section" style="text-decoration: none; color: black;">
+  //     <div class="card h-100">
+  //         <img src="..." class="card-img-top" alt="...">
+  //         <div class="card-body">
+  //             <h5 class="card-title">Card title</h5>
+  //             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+  //             content. This content is a little bit longer.</p>
+  //         </div>
+  //     </div>
+  // </a>
+  // </div>
 
-          var cardMeal = createNode("h5", meal.strMeal);
-          cardMeal.className = "card-title";
-          cardBody.appendChild(cardMeal); // Add <p class="card-text"> con strMeal strCategory y strArea
 
+  console.log(Array.isArray(dataMeals));
+
+  if (Array.isArray(dataMeals)) {
+    cleanResults();
+    showResult(dataMeals.length);
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = dataMeals[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var meal = _step.value;
+        var col = document.createElement("div");
+        col.className = "col"; // Add <div class="card shadow-sm">
+
+        var card = document.createElement("div");
+        card.className = "card h-100";
+        col.appendChild(card); //Add img with class "bd-placeholder-img card-img-top"
+
+        var img = document.createElement("img");
+        img.className = "bd-placeholder-img card-img-top"; // img.height = "225";
+
+        img.alt = "" + meal.strMeal;
+        img.role = "img";
+        img.src = "" + meal.strMealThumb;
+        card.appendChild(img); // <div class="card-body"> 
+
+        var cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+        card.appendChild(cardBody); // Add <h5 class="card-title">Card title</h5>
+
+        var cardMeal = createNode("h5", meal.strMeal);
+        cardMeal.className = "card-title";
+        cardBody.appendChild(cardMeal); // Add <p class="card-text"> con strMeal strCategory y strArea
+
+        if (meal.strCategory) {
           var cardCategory = createNode("p", meal.strCategory);
           cardBody.appendChild(cardCategory);
           var cardArea = createNode("p", meal.strArea);
           cardArea.className = "card-text";
-          cardBody.appendChild(cardArea); // Add <div class="d-flex justify-content-between align-items-center">
+          cardBody.appendChild(cardArea);
+        } // Add <div class="d-flex justify-content-between align-items-center">
 
-          var botones = document.createElement("div");
-          botones.className = "d-flex justify-content-between align-items-center";
-          cardBody.appendChild(botones); // Add <div class="btn-group">
 
-          var btnGroup = document.createElement("div");
-          btnGroup.className = "btn-group";
-          botones.appendChild(btnGroup); // <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+        var botones = document.createElement("div");
+        botones.className = "d-flex justify-content-between align-items-center";
+        cardBody.appendChild(botones); // Add <div class="btn-group">
 
-          var viewButton = createNode("button", "Ver detalles");
-          var secButton = createNode("button", "Otro botón");
-          viewButton.className = "btn btn-sm btn-outline-secondary";
-          secButton.className = "btn btn-sm btn-outline-secondary";
-          btnGroup.appendChild(viewButton);
-          btnGroup.appendChild(secButton);
-          console.log(col);
-          divCardsResult.appendChild(col);
-        } // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
+        var btnGroup = document.createElement("div");
+        btnGroup.className = "btn-group";
+        botones.appendChild(btnGroup); // <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+        // const viewButton = createNode("button", "Ver detalles");
+        // const secButton = createNode("button", "Otro botón");
+        // viewButton.className = "btn btn-sm btn-outline-secondary";
+        // secButton.className = "btn btn-sm btn-outline-secondary";
+        // btnGroup.appendChild(viewButton);
+        // btnGroup.appendChild(secButton);
 
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
+        var viewInfo = "\n        <button onclick=\"getMealInfo(".concat(meal.idMeal, ")\" type=\"button\" class=\"btn btn-detail\">View Recipe <i class=\"icofont-hand-drawn-right\"></i> </button>\n            ");
+        btnGroup.innerHTML = viewInfo; // const mealInfoDiv = document.createElement('div');
+        // mealInfoDiv.className = 'col-xm-1 col-sm-1 col-md-3 p-3 d-flex justify-content-center';
+        // mealInfoDiv.innerHTML = mealInfo;
+        // mealInfoSection.appendChild(mealInfoDiv);
+
+        console.log(col);
+        divCardsResult.appendChild(col);
+      } // Reemplaza los resultados anteriores con los resultados de búsqqueda nuevos
+      // HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
+
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
+        }
       } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-            _iterator["return"]();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
+        if (_didIteratorError) {
+          throw _iteratorError;
         }
       }
-
-      HTMLResponse.replaceChild(divCardsResult, HTMLResponse.childNodes[0]);
     }
-  }, 500);
+  }
+}
+
+var searchBtn;
+
+function print() {
+  console.log("function print is running");
+
+  if (inputByName.value) {
+    console.log("input is true");
+    searchBtn = inputByName.value.toUpperCase();
+    console.log("Buscar: ", searchBtn);
+    apiByName(searchBtn); // console.log(data);
+    // Esperar a que se ejecute la funcion apiByName()
+
+    setTimeout(createCards, 500);
+  } else {
+    console.log("input is empty");
+    cleanResults();
+    var emptyTag = document.createElement("p");
+    var emptyText = document.createTextNode("No has ingresado nada");
+    emptyTag.appendChild(emptyText);
+    divCardsResult.appendChild(emptyTag);
+  }
 }
 
 searchByName.addEventListener("click", print);
@@ -172,3 +242,14 @@ inputByName.addEventListener("keypress", function (event) {
     print();
   }
 });
+
+function getMealInfo(mealID) {
+  window.location.href = "./receta.html?i=".concat(mealID); // regresa la URL mostrando el ID de la receta
+
+  var url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=".concat(mealID);
+  fetch(url).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    return console.log(data);
+  });
+}

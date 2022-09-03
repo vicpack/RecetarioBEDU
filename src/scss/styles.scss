@@ -158,6 +158,26 @@ h5{
   }
 }
 
+.btn-detail {
+  text-align: center;
+  font-family: $font-main;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #f7e8d9;
+  background-color: $color-1;
+  border: 0;
+  border-radius: 4px;
+  margin-top: 6px;
+  width: 100%;
+  
+  &:hover,
+  &:active,
+  &:focus  {
+    color: $color-back;
+    background-color: $color-dark1;
+  }
+}
+
 /* ########## 6. CARDS & ALERTS  ########## */
 
 .card{
@@ -315,5 +335,63 @@ h5{
   
   &:last-child{
     border-right: 0;
+  }
+}
+
+
+/* ########## 9. FOOTER  ########## */
+footer{
+  background-color: $color-dark2;
+
+  h3{
+    font-family: $font-title;
+    margin-bottom: 0.75rem;
+  }
+
+  h3,
+  p{
+    color: $color-back;
+    text-align: center;
+  }
+}
+
+/* ########## 10. RECETA ########## */
+#meal{
+  h1{
+    font-family: $font-title;
+    font-size: 2.75rem;
+    color: $color-2;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
+
+  .card-header {
+    background-color: $color-dark1;
+    border: 0;
+    h5{ color: $color-back;      
+    }
+  }
+
+  .catArea{
+    font-size: 1.0rem;
+    span{
+      font-size: 1.2rem;
+      font-family: $font-title;
+      color: $color-dark1;
+    }
+  }
+  .tags span{
+    display: inline-block;
+    background-color: #edcdad;
+    color: $color-dark1;
+    padding: 4px 8px;
+    margin-right: 4px;
+    border-radius: 6px;
   }
 }
