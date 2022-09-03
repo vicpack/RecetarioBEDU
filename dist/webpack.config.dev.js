@@ -6,7 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    bundle: './src/js/API.js'
+    bundle: './src/js/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -18,6 +18,9 @@ module.exports = {
     template: './src/app/index.html',
     hash: true
   })],
+  performance: {
+    hints: false
+  },
   // Modulos para Estilos CSS, Babel e Imagenes
   module: {
     rules: [{
@@ -28,12 +31,17 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['@babel-preset-env']
+          presets: ['@babel/preset-env']
         }
       }
     }, {
-      test: /\.(png|svg|jpg|jpeg|gif)$/i,
-      type: 'src/img'
+      // test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      //type: 'src/img'
+      test: /\.(png|svg|jpg|gif)$/,
+      loader: 'file-loader',
+      options: {
+        name: 'img/[name].[hash:7].[ext]'
+      }
     }]
   },
   // Server
