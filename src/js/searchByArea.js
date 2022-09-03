@@ -1,6 +1,3 @@
-import "/src/css/generator.css";
-import "/src/css/styles.css";
-
 const xhrarea = new XMLHttpRequest();
 const HTMLall = document.getElementById("searchByArea");
 

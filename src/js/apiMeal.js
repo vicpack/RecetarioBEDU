@@ -1,6 +1,3 @@
-import "/src/css/generator.css";
-import "/src/css/styles.css";
-
 //Obtenemos los elementos del id meal
 const mealContainer = document.getElementById("meal");
 

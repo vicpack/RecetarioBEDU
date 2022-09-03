@@ -1,6 +1,3 @@
-import "/src/css/generator.css";
-import "/src/css/styles.css";
-
 const API_URL = "https://www.themealdb.com";
 const xhrcat = new XMLHttpRequest();
 const HTMLallcat = document.getElementById("searchBycategories");

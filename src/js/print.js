@@ -1,6 +1,3 @@
-import "/src/css/generator.css";
-import "/src/css/styles.css";
-
 // const printResults = document.getElementById("printResults");
 const searchByName = document.getElementById("searchByName");
 var inputByName = document.getElementById("inputByName");
