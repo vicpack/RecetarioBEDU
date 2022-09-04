@@ -1,0 +1,345 @@
+@charset "UTF-8";
+/* DOCUMENTO CSS PRINCIPAL                      */
+/* Desarrollado para: BEDU                      */
+/* Proyecto: Final en Equipo                    */
+/* Autores: Ma. Eunice Vazquez,                 
+            Eder Bermudez,
+            Carlos Jiménez,
+            Dionicio Mata, 
+            Victor Morales                      */
+/* Fecha: Agosto 2022                           */
+/* -- TABLA DE CONTENIDOS ------------------------
+*     1. TIPOGRAFIAS
+*     2. VARIABLES ROOT
+*     3. PLANTILLA
+*     4. PARRAFO Y TITULOS
+*     5. BOTONES
+*     6. FORMULARIO
+*     7. INDEX
+----------------------------------------------- */
+/*@import "normalize.css";*/
+/* ########## 1. TIPOGRAFIAS ########## */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Pacifico&display=swap");
+@import url("./../libs/icofont/icofont.min.css");
+/* ########## 2. VARIABLES ROOT ########## */
+:root {
+  --color-1: #914D0C;
+  --color-2: #D48432;
+  --color-dark1: #3E2B19;
+  --color-dark2: #1D0F02;
+  --color-txt: #312214;
+  --color-back: #EBDED3;
+  --color-body: #FAF2EA;
+  --color-borde: var(--color-dark1);
+  --linea-borde: 1px solid var(--color-borde);
+  --font-main: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-title: "Pacifico", Georgia, "Times New Roman", Times, serif;
+  --font-icon: "IcoFont";
+}
+
+/* ########## 3. PLANTILLA ########## */
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-txt);
+  text-align: left;
+  background-color: var(--color-body);
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ########## 4. PARRAFO Y TITULOS  ########## */
+h5 {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* ########## 5. BOTONES  ########## */
+.btn-chef {
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  color: var(--color-back);
+  background-color: var(--color-1);
+  border: 0;
+  border-radius: 20px;
+}
+.btn-chef:hover, .btn-chef:active, .btn-chef:focus {
+  color: var(--color-back);
+  background-color: var(--color-dark1);
+}
+
+.btn-detail {
+  text-align: center;
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #f7e8d9;
+  background-color: var(--color-1);
+  border: 0;
+  border-radius: 4px;
+  margin-top: 6px;
+  width: 100%;
+}
+.btn-detail:hover, .btn-detail:active, .btn-detail:focus {
+  color: var(--color-back);
+  background-color: var(--color-dark1);
+}
+
+/* ########## 6. CARDS & ALERTS  ########## */
+.card {
+  background-color: #f7e8d9;
+  border: 1px solid #edcdad;
+  border-radius: 0;
+}
+.card .card-title {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.alert-result {
+  background-color: #f7e8d9;
+  border: 1px solid #edcdad;
+}
+.alert-result * {
+  margin: 0;
+  padding: 0;
+}
+.alert-result:before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 10px);
+  width: 0;
+  height: 0;
+  border-width: 20px 30px 0;
+  border-style: solid;
+  border-color: #edcdad transparent transparent;
+}
+
+/* ########## 7. FORMULARIO  ########## */
+.form-control, .form-select {
+  font-size: 0.875rem;
+  color: var(--color-1);
+  padding: 5px 15px;
+  border: 1px solid var(--color-1);
+  border-right: 0 !important;
+  border-radius: 20px;
+  box-shadow: inset 0 0 3px 0 var(--color-dark1);
+}
+.form-control:-ms-input-placeholder, .form-select:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+.form-control::-moz-placeholder, .form-select::-moz-placeholder {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+.form-control::placeholder, .form-select::placeholder {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+.form-control:hover, .form-control:focus, .form-control:active, .form-select:hover, .form-select:focus, .form-select:active {
+  border-color: var(--color-2);
+  outline: 0 none;
+  box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+}
+
+.form-select {
+  padding-right: 2.25rem;
+}
+
+/* ########## 8. INDEX  ########## */
+#inputByName {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-1);
+  padding: 5px 15px;
+  border: 1px solid var(--color-1);
+  border-right: 0 !important;
+  border-radius: 20px 0 0 20px;
+  box-shadow: inset 0 0 3px 0 var(--color-dark1);
+}
+#inputByName:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+#inputByName::-moz-placeholder {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+#inputByName::placeholder {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+}
+#inputByName:hover, #inputByName:focus, #inputByName:active {
+  border-color: var(--color-2);
+  outline: 0 none;
+  box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(212, 132, 50, 0.75);
+}
+
+#searchByName {
+  font-size: 1.25rem;
+  border-radius: 0 20px 20px 0;
+}
+
+#searchRandom {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  color: var(--color-1);
+  text-decoration: none;
+}
+#searchRandom i {
+  font-size: 2rem;
+}
+#searchRandom:hover {
+  color: var(--color-2);
+}
+
+#searchBycategories,
+#searchByArea {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--color-1);
+  padding-right: 3.5rem;
+  text-align: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
+}
+#searchBycategories option,
+#searchByArea option {
+  font-family: var(--font-main);
+  text-align: left;
+}
+
+#subSelect > div {
+  border-right: var(--linea-borde);
+  border-width: 2px;
+}
+#subSelect > div:last-child {
+  border-right: 0;
+}
+
+/* ########## 9. FOOTER  ########## */
+footer {
+  background-color: var(--color-dark2);
+}
+footer h3 {
+  font-family: var(--font-title);
+  margin-bottom: 0.75rem;
+}
+footer h3,
+footer p {
+  color: var(--color-back);
+  text-align: center;
+}
+
+/* ########## 10. RECETA ########## */
+#meal h1 {
+  font-family: var(--font-title);
+  font-size: 2.75rem;
+  color: var(--color-2);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+#meal ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+#meal .card-header {
+  background-color: var(--color-dark1);
+  border: 0;
+}
+#meal .card-header h5 {
+  color: var(--color-back);
+}
+#meal .catArea {
+  font-size: 1rem;
+}
+#meal .catArea span {
+  font-size: 1.2rem;
+  font-family: var(--font-title);
+  color: var(--color-dark1);
+}
+#meal .tags span {
+  display: inline-block;
+  background-color: #edcdad;
+  color: var(--color-dark1);
+  padding: 4px 8px;
+  margin-right: 4px;
+  border-radius: 6px;
+}/*# sourceMappingURL=styles.css.map */
